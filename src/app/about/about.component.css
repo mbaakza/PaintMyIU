@@ -1,0 +1,7 @@
+div {margin-top:70px; width:45%; float:left; padding:20px; color:#2d2d2d}
+div i {color:#44b3e9; margin-right:10px}
+ul li {margin-bottom:8px; display: block; font-weight: bold; 
+    border-bottom:2px dashed gray; padding-top:0; padding-bottom: 8px;}
+ul li a {font-weight: normal; text-decoration: none; color:#359cd0 }
+ul li i {color:#2d2d2d; margin-right:0}
+

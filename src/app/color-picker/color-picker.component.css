@@ -1,0 +1,172 @@
+h1,h2,h3{margin:0; padding:0;}
+h1{font-size:40pt; margin-top:20px}
+h2{font-size:25pt;}
+h3{font-size:16pt; margin:7px 0}
+.mainUI {float:left; position: relative; height:100%}
+/* .mainUI .grid-container {width:810px; height:90%; margin-top:5px} */
+.mainUI .grid-container {width:860px; margin-right:20px}
+
+.paintDrip{height:60px; width:60px; float:left; margin:26px 0 0 10px; 
+    border-radius: 3px;}
+
+#myCanvas{margin-left:-40px}
+.palette{margin-top:1px;}
+.palette .tiles {height:125px; margin-bottom:10px;
+}
+.palette ul, .elemCont ul {margin:0}
+.colorful {
+  background: -webkit-linear-gradient(#44b3e9, #4294d8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;}
+
+ul li {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box; }
+ul.elemCont{width:600px;}
+li.elemNames {display:inline-block; border-right:1px solid white; margin:0; padding:0; 
+  width:100px; text-align: center; padding:7px 0; background-color:#CCCCCC;
+  font-size:12pt;}
+
+#pikr{margin: 0 20px 0 330px; font-size: 14pt;}
+#pikr span{text-transform: uppercase; padding-left:15px}
+#pikr i:hover, #pikr h3:hover {cursor: pointer}
+#pikr h3{line-height:20px; padding-top:4px; float:left; margin-top:20px;}
+#pikr button {font-size:12pt; padding:8px 17px; 
+  position: absolute; right:30px; top:30px}
+#pikr button:hover {cursor: pointer;}
+.gMessage {position: absolute; font-style: italic; color:gray}
+
+/* Color Table */
+aside{float:left; margin:45px 20px 0 20px}
+.err {color:Red;height:20px; font-weight: bold; font-size:12pt}
+
+.example-box img:hover{cursor:arrow}
+.color-list {
+    width:600px; 
+    max-width: 100%;
+    border:0;
+    min-height: 110px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    
+    overflow: hidden;
+    background-image: linear-gradient(#CCCCCC, #fff);
+  }
+  .trashBox{margin:15px 0 47px 0; display:block; border:2px dashed gray; 
+    width:600px; font-size:14pt; text-align: center; background-image:none; 
+    background-color: #f0f0f0; min-height: 50px; overflow: hidden; padding-bottom:5px}
+  .trashBox i {margin-top:15px; color:#919191}
+  .trashed{display:none}
+  .trashBox small {font-size:11pt; color:gray; font-style: italic;}
+
+  .example-box {
+    color: rgba(0, 0, 0, 0.87);
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: transparent;
+    font-size: 14px;
+    
+  }
+  
+  .cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+  
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+  
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .example-box:last-child {
+    border: none;
+  }
+  
+  .color-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right; }
+.item5 { grid-area: footer; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'menu main main main right right'
+    'menu footer footer footer footer footer';
+  grid-gap: 10px;
+  padding: 10px; 
+}
+
+.grid-container > div {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 16pt;
+}
+
+/* Main styles for large UI */
+.grid-container > div.lg {font-size:12pt; position: relative;
+  text-align: left; padding:20px; }
+
+.grid-container img {margin:0; padding:0}
+.grid-container > div.lg h2 {filter:opacity(65%);font-size:18pt; margin:0; 
+    display: inline-block;
+    background-color:rgba(0, 0, 0, 0.5); margin-bottom:10px; color:white;
+    padding:3px 10px;}
+.grid-container > div.lg h3 {margin:0; margin-bottom:5px; text-align:left}
+.grid-container > div.lg section {background-color:rgba(254, 254, 254, 0.5);
+  text-align: justify;}
+
+/* Header */
+.grid-container > div.lg1 {padding-bottom:15px; position:relative}
+.lg1 h2 {position: absolute; left:50px}
+.lg1 img {margin:0; padding:0; width: 100%; height:150px; object-fit: cover; 
+  object-position: 0px -100px;}
+
+/* Menu */
+/* .grid-container > div.lg2 h2 {} */
+.lg2 ul {margin-top:0;padding-inline-start:0;width:inherit;}
+.lg2 ul li {background-color:rgba(254, 254, 254, 0.5); display:block;
+    padding:10px; margin-bottom:8px}
+.grid-container > div.lg2 {padding-bottom:5px; position: relative;}
+.lg2 img {position:absolute; bottom:23px; width:91.5%; object-fit: cover;
+  object-position: -25px 0;}
+
+/* Main */
+.item3 section{background-color: #fff; padding:10px; padding-bottom:5px;}
+.lg3 img {margin:0; margin-top: 10px; padding:0; width: 100%;; 
+  object-fit: cover;}
+
+/* Aside */
+.lg4 img {margin:0; margin-top: 10px; padding:0; width: 100%; height:160px; 
+  object-fit: cover; object-position: 0 0;}
+.item4 section{background-color: #fff; padding:10px;}
+
+/* Footer */
+.lg5 h2 {float:left; position: absolute;}
+.item5 section{background-color: #fff; padding:10px; 
+    float:right; margin:0 10 0 0;}
+
+/* Rounded Corners */
+.grid-container{border-radius: 15px;
+  box-shadow: 0 1px 2px 0 rgba(53, 53, 53, 0.2), 0 6px 20px 0 rgba(53, 53, 53, 0.10);}
+.item1 {border-radius: 10px 10px 0 0} /* Header */
+.item1 img {border-radius: 10px 10px 0 0} /* Header img */
+.item2 {border-radius: 0 0 0 10px} /* Menu */ 
+.item5{border-radius: 0 0 10px 0} /* Footer */

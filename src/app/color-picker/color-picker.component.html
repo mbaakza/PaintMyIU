@@ -1,0 +1,171 @@
+<!-- ALTERNATE UI Table -->
+<div class="mainUI">
+
+    <div id="pikr" class="cont">
+        <h3 class="colorful"
+        [(ngModel)]="color"
+        [(colorPicker)]="color"   
+        [cpOKButton]="true"
+        [cpOKButtonText]="'Add to Palette'"
+        (colorPickerSelect)="addToPalette(this.color)"
+        [cpAlphaChannel]="'disabled'"
+        [cpSaveClickOutside]="false"
+        ngDefaultControl>
+            Add a <br/>Color:</h3>
+
+        <i [(ngModel)]="color"
+        [(colorPicker)]="color"   
+        [cpOKButton]="true"
+        [cpOKButtonText]="'Add to Palette'"
+        (colorPickerSelect)="addToPalette(this.color)"
+        [cpAlphaChannel]="'disabled'"
+        [cpSaveClickOutside]="false"
+        ngDefaultControl 
+        class="paintDrip fas fa-fill-drip fa-2x"
+        [style.color]="color">
+        </i>
+
+        <p style="float:left; margin:22px 0 0 0px;">
+            <b>Current Color:</b><br/>
+            <span>{{color}}</span></p>
+
+        <button id="btn" (click)="clear()">Reset</button>
+    </div>  
+
+    <div style="clear:both"></div>
+    
+    <div class="grid-container" [style.background-color]="bg">
+    
+        <div class="item1 lg lg1" [style.background-color]="ui[0].color">
+            <!-- <h2 style="color:{{ui[0].color}}">{{ui[0].name}}</h2> -->
+            <h2>{{ui[0].name}}</h2>
+            <img alt="" src="././assets/images/YogaMat.png"/>
+        </div>
+    
+        <div class="item2 lg lg2" [style.background-color]="ui[1].color">
+            <h2>{{ui[1].name}}</h2>
+            <ul>
+                <li>Home</li>
+                <li>About Us</li>
+                <li>Yoga Benefits</li>
+                <li>Contact</li>
+            </ul>
+            <img alt="" src="././assets/images/Food.png"/>
+        </div>
+    
+        <div class="item3 lg lg3" [style.background-color]="ui[2].color">
+            <h2>{{ui[2].name}}</h2>
+            <section>
+                <h3>Mind Power</h3>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    
+                <img alt="" src="././assets/images/Mindfulness.gif"/>
+            </section>
+        </div>
+    
+        <div class="item4 lg lg4" [style.background-color]="ui[3].color">
+            <h2>{{ui[3].name}}</h2>
+            <img alt="" src="././assets/images/Yoga.jpeg"/>
+            <section>
+                <h3>Health First</h3>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                nisi ut aliquip ex ea commodo consequat.
+            </section>
+        </div>
+    
+        <div class="item5 lg lg5" [style.background-color]="ui[4].color">
+            <section>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
+                eiusmod.
+            </section>
+            <h2>{{ui[4].name}}</h2>
+            <div style="clear:both"></div>
+        </div>
+    
+    </div>
+    </div>
+
+    
+    
+<aside [hidden]="!show">
+<h2>Color Palette</h2>
+<div class="err"> {{err}} </div>
+<h3>{{count}}</h3>
+
+<div class="elemCont">
+
+    <ul style="padding-inline-start: 0">
+        <li class="elemNames">Background</li>
+        <li class="elemNames" *ngFor="let elem of ui">{{elem.name}}</li>
+    </ul>
+
+</div>
+
+<div class="palette" cdkDropListGroup>
+    <div
+        cdkDropListOrientation="horizontal"
+        cdkDropList
+        [cdkDropListData]="palette"
+        class="color-list tiles"
+        (cdkDropListDropped)="drop($event)">
+
+        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+        
+        <div class="example-box" *ngFor="let item of palette" cdkDrag>
+            <img draggable="false" alt="" src="{{item.imageUrl}}"/><br/>
+            {{ item.hex }}
+        </div>
+    </div>
+
+    <div>
+        <h3>Gradient Visualizer</h3>
+        <span class="gMessage">{{gMessage}}</span>
+        <ul>
+        <canvas id="myCanvas" height="50">
+        Your browser does not support the HTML5 canvas tag.
+        </canvas>
+         </ul>
+    </div>
+
+    <div
+        cdkDropList
+        [cdkDropListData]="mockArray"
+        class="color-list trashBox"
+        (cdkDropListDropped)="colorDrop($event)">
+        <i class="fas fa-trash-alt fa-lg"></i>&nbsp; 
+        <b>Trash Zone</b><br/><small>Drag tiles here to remove colors from UI</small>
+        <div class="example-box trashed" *ngFor="let item of mockArray" cdkDrag>
+        </div>
+    </div>
+</div>
+
+
+<h3 style="text-align: left;">UI Snapshot</h3>
+<!-- UI Table -->
+<div class="grid-container" [style.background-color]="bg" style="width:585px;">
+
+    <div *ngFor="let elem of ui; index as i; trackBy: trackByFn" 
+    [style.background-color]="elem.color"
+    class="item{{i+1}}" >
+        {{elem.name}}
+    </div>
+
+</div>
+</aside>
+
+
+
+
+<div [hidden]="show" class="intro" style="float:left;
+margin:200px 30px 0 70px; width:425px">
+    <h2>Get Started</h2>
+    <p>Click on the <i style="color:#b8b8b8" class="fas fa-fill-drip fa-s"></i> 
+        Add a Color icon and choose up to six colors to create a custom 
+        color palette.</p>
+    <p>The sample User Interface on the left displays the current color 
+        palette as colors are added, removed, and re-arranged. </p>
+    <p>The <i style="color:#b8b8b8" class="fas fa-fill-drip fa-s"></i> icon 
+         reflects the most recent color added, 
+        removed, or re-arranged until page reload.</p>
+</div>
